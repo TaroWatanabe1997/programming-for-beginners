@@ -9,12 +9,12 @@
 
   <title>
     
-       &middot; cpp-python-beginners
+      環境設定 &middot; cpp-python-beginners
     
   </title>
 
   
-  <link rel="canonical" href="https://tatsy.github.io/cpp-python-beginners/404.html">
+  <link rel="canonical" href="https://tatsy.github.io/cpp-python-beginners/get_started/">
   
 
   <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/poole.css">
@@ -101,7 +101,7 @@ MathJax = {
     
       
         
-          <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/get_started/">環境設定</a>
+          <a class="sidebar-nav-item active" href="https://tatsy.github.io/cpp-python-beginners/get_started/">環境設定</a>
         
       
     
@@ -139,25 +139,51 @@ MathJax = {
       </div>
 
       <div class="container content">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <div class="page">
+  <h1 class="page-title">環境設定</h1>
+  <h2 id="githubのアカウントを作る">GitHubのアカウントを作る</h2>
 
-<div class="container">
-  <h1>404</h1>
+<ul>
+  <li><a href="https://github.com/" target="_blank">GitHub</a> にアクセスしてアカウントを作る</li>
+  <li>学生の場合にはアカデミック・ライセンスでアカウントが作れる</li>
+  <li>Windowsの人は<a href="https://gitforwindows.org/" target="_blank">Git for Windows</a> をインストール</li>
+</ul>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<h2 id="minicondaのインストール">Minicondaのインストール</h2>
+
+<ul>
+  <li><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">Miniconda</a> にアクセスして、手順に従いインストール</li>
+  <li>作業用のPython環境を作る。WindowsならPowerShell, Macならターミナルを使う</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 仮想環境の作成</span>
+conda create <span class="nt">-n</span> beginner <span class="nv">python</span><span class="o">=</span>3.6
+<span class="c"># 仮想環境の有効化</span>
+conda activate beginner
+<span class="c"># 仮想環境の無効化</span>
+</code></pre></div></div>
+
+<ul>
+  <li>必要なライブラリをインストール</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 仮想環境を有効化した後で</span>
+conda <span class="nb">install </span>numpy scipy matplotlib scikit-learn scikit-image opencv
+conda <span class="nb">install</span> <span class="nt">-c</span> conda-forge jupyterlab
+</code></pre></div></div>
+
+<ul>
+  <li>Jupyter Labの起動</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter lab
+</code></pre></div></div>
+
+<p>以下の画面が出る。</p>
+
+<p><a class="lightbox-link" href="/cpp-python-beginners/public/images/get_started/jupyterlab.jpg" data-lightbox="images-1" data-title=""><img src="/cpp-python-beginners/public/images/get_started/jupyterlab.jpg" alt="" style="" /></a></p>
+
+
 </div>
 
       </div>
