@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tatsy.github.io/cpp-python-beginners/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tatsy.github.io/cpp-python-beginners/" rel="alternate" type="text/html" /><updated>2020-04-24T03:30:58+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/feed.xml</id><title type="html">cpp-python-beginners</title><subtitle>初心者向けC++/Pythonプログラミング</subtitle><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><entry><title type="html">画像の読み込み・表示・保存</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load/" rel="alternate" type="text/html" title="画像の読み込み・表示・保存" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load/">&lt;h2 id=&quot;opencvを使った画像のロード&quot;&gt;OpenCVを使った画像のロード&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://tatsy.github.io/cpp-python-beginners/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tatsy.github.io/cpp-python-beginners/" rel="alternate" type="text/html" /><updated>2020-04-24T13:02:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/feed.xml</id><title type="html">cpp-python-beginners</title><subtitle>初心者向けC++/Pythonプログラミング</subtitle><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><entry><title type="html">画像の読み込み・表示・保存</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load/" rel="alternate" type="text/html" title="画像の読み込み・表示・保存" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/image-load/">&lt;h2 id=&quot;opencvを使った画像のロード&quot;&gt;OpenCVを使った画像のロード&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;ライブラリのインポート&lt;/li&gt;
@@ -56,6 +56,177 @@
 &lt;h2 id=&quot;画像の保存&quot;&gt;画像の保存&lt;/h2&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cv2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lena_resized.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resized_image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html">OpenCVを使った画像のロード</summary></entry><entry><title type="html">線形回帰</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/linear-regression/" rel="alternate" type="text/html" title="線形回帰" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/linear-regression</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/linear-regression/"></content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html"></summary></entry><entry><title type="html">バイナリファイルの読み込み</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary/" rel="alternate" type="text/html" title="バイナリファイルの読み込み" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary/">&lt;h2 id=&quot;mnistのダウンロード&quot;&gt;MNISTのダウンロード&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html">OpenCVを使った画像のロード</summary></entry><entry><title type="html">線形回帰</title><link href="https://tatsy.github.io/cpp-python-beginners/python/2020/04/24/linear-regression/" rel="alternate" type="text/html" title="線形回帰" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/python/2020/04/24/linear-regression</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/python/2020/04/24/linear-regression/">&lt;h2 id=&quot;ロジスティック回帰の概要&quot;&gt;ロジスティック回帰の概要&lt;/h2&gt;
 
-&lt;p&gt;MNIST (Mixed National Institute of Standards and Technology) とは同名の機関が作った手書き文字のデータベース。 32x32の白黒画像が学習用に60000枚、テスト用に10000枚含まれている。&lt;/p&gt;</content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html">MNISTのダウンロード</summary></entry><entry><title type="html">数独を解く</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku/" rel="alternate" type="text/html" title="数独を解く" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku/"></content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html"></summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;/cpp-python-beginners/2020/04/24/read-binary/&quot;&gt;バイナリファイルの読み込み&lt;/a&gt;で読み込んだMNISTのデータを使って、単純な線形モデルで数字を予想する。&lt;/p&gt;
+
+&lt;p&gt;一般に線形回帰、といったときにはデータベクトル $\mathbf{x}$ を入力として、何らかの推定値 $\mathbf{y}$ を線形式、すなわち&lt;/p&gt;
+
+\[\mathbf{y} = \mathbf{Ax} + \mathbf{b}\]
+
+&lt;p&gt;という式で関係付ける。出力の推定値が何らかの確率であれば、これにsigmoid関数やsoftmax関数をつけて、&lt;/p&gt;
+
+\[\begin{aligned}
+    \mathbf{y} = \text{sigmoid}(\mathbf{Ax} + \mathbf{b}) \\
+    \mathbf{y} = \text{softmax}(\mathbf{Ax} + \mathbf{b}) \\
+\end{aligned}\]
+
+&lt;p&gt;のようにする。特にsigmoid関数を使うものをロジスティック回帰という(softmaxを使うものも含む場合もある)。なお、sigmoid関数、softmax関数はそれぞれ次のように表される。&lt;/p&gt;
+
+\[\begin{aligned}
+    \text{sigmoid}(x) = \frac{1}{1 + e^{-x}} \\
+    \text{softmax}(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{k=1}^d e^{x_k}}
+\end{aligned}\]
+
+&lt;p&gt;機械学習における推定のタスクにおいて、二者分類のときにはsigmoid関数が、多者分類のときにはsoftmax関数が使われるのが一般的である。今回のMNISTは出力の推定値が &lt;strong&gt;画像$\mathbf{x}$が数字の$i$を表す確率$y_i$&lt;/strong&gt;を求めるのが目標なのでsoftmax関数を使う。&lt;/p&gt;
+
+&lt;h2 id=&quot;scikit-learnによるロジスティック回帰&quot;&gt;scikit-learnによるロジスティック回帰&lt;/h2&gt;
+
+&lt;p&gt;scikit-learnはとても簡単。前回の内容に従って画像を読み込むと、画像とラベルを格納したNumPyの配列はそれぞれ (60000, 28, 28, 1) と (60000, 1) になっているはずである。前者は各画素に0-255の画素値が含まれており、後者は、その画像がどの数字なのかを表す整数が格納されている。&lt;/p&gt;
+
+&lt;p&gt;上記の通り、線形モデルではベクトルを扱うので、画像の画素値を1列に並べ直してベクトル化しよう。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;さらに、配列の型を1バイト符号なし整数から32ビット浮動小数に変換しておく。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'float32'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;あとは&lt;a href=&quot;https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html&quot; target=&quot;_blank&quot;&gt;ドキュメント&lt;/a&gt;の内容に従い&lt;code class=&quot;highlighter-rouge&quot;&gt;LogisticRegression&lt;/code&gt;クラスを使って識別器を学習する。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.linear_model&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogisticRegression&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;clf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogisticRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multi_class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'multinomial'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;少し時間がかかるが、しばらくすると学習が終わる。なお上記のコード内での &lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt; は整数型のラベルを格納したNumPyの配列で良い(分かりやすくするために名前を変更した)。&lt;/p&gt;
+
+&lt;h2 id=&quot;テストデータに対する予測&quot;&gt;テストデータに対する予測&lt;/h2&gt;
+
+&lt;p&gt;学習が終わったら、次はテストデータを読み込んで、正解率を求める。上記の &lt;code class=&quot;highlighter-rouge&quot;&gt;clf&lt;/code&gt; というオブジェクトに対して、以下のようなコードを呼び出すと、ラベルが自動で計算される。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pred_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;正解率は、このラベルがテストのラベルとどのくらい近いかを計算すれば良いのだから、正解かどうか(0 or 1)の平均を全てのテストデータに対して計算すれば良い。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pred_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ただしく学習できていれば90%程度の正解率となるはずである。&lt;/p&gt;
+
+&lt;h2 id=&quot;ロジスティック回帰を再現する&quot;&gt;ロジスティック回帰を再現する&lt;/h2&gt;
+
+&lt;p&gt;上記の通り、ロジスティック回帰による識別モデルは、線形変換とsoftmax関数の組み合わせである。softmax関数にはパラメータ変数は含まれないので、回帰モデル自体のパラメータは行列 $\mathb{A}$ とバイアスベクトル $\mathbf{b}$ のみである。&lt;/p&gt;</content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html">ロジスティック回帰の概要</summary></entry><entry><title type="html">バイナリファイルの読み込み</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary/" rel="alternate" type="text/html" title="バイナリファイルの読み込み" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/read-binary/">&lt;h2 id=&quot;mnistのダウンロード&quot;&gt;MNISTのダウンロード&lt;/h2&gt;
+
+&lt;p&gt;MNIST (Mixed National Institute of Standards and Technology) とは同名の機関が作った手書き文字のデータベース。 32x32の白黒画像が学習用に60000枚、テスト用に10000枚含まれている。以下のウェブページからデータをダウンロード。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://yann.lecun.com/exdb/mnist/&quot; target=&quot;_blank&quot;&gt;http://yann.lecun.com/exdb/mnist/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;train-images-idx3-ubyte.gz:  training set images (9912422 bytes)&lt;/li&gt;
+  &lt;li&gt;train-labels-idx1-ubyte.gz:  training set labels (28881 bytes)&lt;/li&gt;
+  &lt;li&gt;t10k-images-idx3-ubyte.gz:   test set images (1648877 bytes)&lt;/li&gt;
+  &lt;li&gt;t10k-labels-idx1-ubyte.gz:   test set labels (4542 bytes)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;注意: これらのファイルは &lt;code class=&quot;highlighter-rouge&quot;&gt;*.gz&lt;/code&gt; 形式で圧縮されているので展開してから使う&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;これらのファイルのうち &lt;code class=&quot;highlighter-rouge&quot;&gt;images-idx3&lt;/code&gt; とあるものは画像の情報を &lt;code class=&quot;highlighter-rouge&quot;&gt;labels-idx1&lt;/code&gt; とあるものは、各画像が数字のいくつを表しているのかを保存している。各ファイル内のデータのバイトオーダ (何バイト目に何が書いてあるか) はページ下部の「FILE FORMATS FOR THE MNIST DATABASE」に説明がある。&lt;/p&gt;
+
+&lt;h2 id=&quot;バイナリデータを読む&quot;&gt;バイナリデータを読む&lt;/h2&gt;
+
+&lt;p&gt;Pythonではバイナリデータの読み込みは &lt;code class=&quot;highlighter-rouge&quot;&gt;struct&lt;/code&gt; というパッケージを使う。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;struct&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# ファイルを開く (rbはread binaryの意味)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'binary_file.bin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 4バイト読む
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# バイトを整数に変換
+# MNISTの先頭4バイトはファイル識別用のマジックナンバー
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# ファイルを閉じる
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上記のコードで &lt;code class=&quot;highlighter-rouge&quot;&gt;struct.unpack('&amp;gt;i', b)&lt;/code&gt; とあるが、この中の &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;i&lt;/code&gt; の部分はリトルエンディアン (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;) で、4バイト符号付き整数を読むということ。他のフォーマットについては&lt;a href=&quot;https://docs.python.org/ja/3/library/struct.html&quot; target=&quot;_blank&quot;&gt;ドキュメント&lt;/a&gt;を見よう。&lt;/p&gt;
+
+&lt;h2 id=&quot;mnist内の画像を表示する&quot;&gt;MNIST内の画像を表示する&lt;/h2&gt;
+
+&lt;p&gt;「FILE FORMATS FOR THE MNIST DATABASE」によれば画像ファイルは最初の4バイトがマジックナンバー (2051) で、その後、4バイト区切りで画像数 (6000)、画像の高さ (28)、画像の幅 (28)が入っている。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# マジックナンバー
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 画像数、高さ、幅 (一気に複数の数字をunpackすることもできる)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;iii'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;それ以後は1枚1枚の画像の情報が書かれている。1枚の画像の各画素は白黒の値が0-255 (1バイト符号なし整数)で書かれていて、それが28x28=784画素分ある。故に画像1枚分のデータは784バイトになる。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;B'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;このままでは画像として表示できないので、これを &lt;strong&gt;NumPy&lt;/strong&gt; の配列に変更して、形を変更しよう。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'uint8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;試しに表示してみる。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;すると以下のような画像が出る。&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;lightbox-link&quot; href=&quot;/cpp-python-beginners/public/images/read_binary/mnist_1.jpg&quot; data-lightbox=&quot;images-1&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/cpp-python-beginners/public/images/read_binary/mnist_1.jpg&quot; alt=&quot;&quot; style=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;色が変だが、これはMatplotLibのカラーマップが自動的に適用されたため。グレースケールの画像にしたければ、カラーマップを自分で指定する。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gray'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a class=&quot;lightbox-link&quot; href=&quot;/cpp-python-beginners/public/images/read_binary/mnist_2.jpg&quot; data-lightbox=&quot;images-1&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/cpp-python-beginners/public/images/read_binary/mnist_2.jpg&quot; alt=&quot;&quot; style=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;画像をタイル状に表示する&quot;&gt;画像をタイル状に表示する&lt;/h2&gt;
+
+&lt;p&gt;これは一工夫必要。まず100枚画像を読み込もう。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'B'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'uint8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pixels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これを10x10のタイル状に表示したい。MatplotLibは描画のウィンドウを表す &lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt; と、実際に画像やグラフが表示される &lt;code class=&quot;highlighter-rouge&quot;&gt;axis&lt;/code&gt; があり、&lt;code class=&quot;highlighter-rouge&quot;&gt;figure&lt;/code&gt;に&lt;code class=&quot;highlighter-rouge&quot;&gt;axis&lt;/code&gt;を追加していく形で複数の画像を表示できる。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;# 10x10のタイルのindex番目のaxisという意味
+&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# 番号は1から始まるので1を足しておく
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_subplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# グレースケールで表示
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'gray'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# 画像の周りにある目盛りを消す
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'off'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a class=&quot;lightbox-link&quot; href=&quot;/cpp-python-beginners/public/images/read_binary/mnist_tile.jpg&quot; data-lightbox=&quot;images-1&quot; data-title=&quot;&quot;&gt;&lt;img src=&quot;/cpp-python-beginners/public/images/read_binary/mnist_tile.jpg&quot; alt=&quot;&quot; style=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html">MNISTのダウンロード</summary></entry><entry><title type="html">数独を解く</title><link href="https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku/" rel="alternate" type="text/html" title="数独を解く" /><published>2020-04-24T00:00:00+00:00</published><updated>2020-04-24T00:00:00+00:00</updated><id>https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku</id><content type="html" xml:base="https://tatsy.github.io/cpp-python-beginners/2020/04/24/solve-sudoku/"></content><author><name>Tatsuya Yatagawa</name><email>tatsy.mail@gmail.com</email></author><summary type="html"></summary></entry></feed>

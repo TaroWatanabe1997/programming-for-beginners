@@ -5,8 +5,8 @@
 		"main.scss"
 	],
 	"sourcesContent": [
-		"@import \"lightbox.min.css\";\n\n"
+		"@import \"lightbox.min.css\";\n\n.lightbox-link {\n  img {\n    width: 50%;\n  }\n}"
 	],
 	"names": [],
-	"mappings": "AAAA,OAAO,CAAP,qBAAO"
+	"mappings": "AAAA,OAAO,CAAP,qBAAO;AAEP,AACE,cADY,CACZ,GAAG,CAAC,EACF,KAAK,EAAE,GAAG,GACX"
 }

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      線形回帰 &middot; cpp-python-beginners
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://tatsy.github.io/cpp-python-beginners/python/2020/04/24/linear-regression/">
+  
+
+  <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/poole.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/syntax.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://tatsy.github.io/cpp-python-beginners/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="https://tatsy.github.io/cpp-python-beginners/public/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tatsy.github.io/cpp-python-beginners/atom.xml">
+
+  <script type="text/javascript" src="/cpp-python-beginners/public/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/cpp-python-beginners/public/js/lightbox.min.js"></script><script>
+MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        tags: "ams",
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    chtml: {
+        scale: 1.1,
+        matchFontHeight: false,
+        displayAlign: "left",
+        displayIndent: "2em"
+    },
+    options: {
+        renderActions: {
+            /* add a new named action to render <script type="math/tex"> */
+            find_script_mathtex: [10, function (doc) {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            }
+            }, '']
+        }
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+    styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>初心者向けC++/Pythonプログラミング</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/get_started/">環境設定</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/python/">Pythonプログラミング</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/tatsy/cpp-python-beginners">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/cpp-python-beginners/" title="Home">cpp-python-beginners</a>
+            <small>Programming for everyone!</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">線形回帰</h1>
+  <span class="post-date">24 Apr 2020</span>
+  <h2 id="ロジスティック回帰の概要">ロジスティック回帰の概要</h2>
+
+<p><a href="/cpp-python-beginners/2020/04/24/read-binary/">バイナリファイルの読み込み</a>で読み込んだMNISTのデータを使って、単純な線形モデルで数字を予想する。</p>
+
+<p>一般に線形回帰、といったときにはデータベクトル $\mathbf{x}$ を入力として、何らかの推定値 $\mathbf{y}$ を線形式、すなわち</p>
+
+\[\mathbf{y} = \mathbf{Ax} + \mathbf{b}\]
+
+<p>という式で関係付ける。出力の推定値が何らかの確率であれば、これにsigmoid関数やsoftmax関数をつけて、</p>
+
+\[\begin{aligned}
+    \mathbf{y} = \text{sigmoid}(\mathbf{Ax} + \mathbf{b}) \\
+    \mathbf{y} = \text{softmax}(\mathbf{Ax} + \mathbf{b}) \\
+\end{aligned}\]
+
+<p>のようにする。特にsigmoid関数を使うものをロジスティック回帰という(softmaxを使うものも含む場合もある)。なお、sigmoid関数、softmax関数はそれぞれ次のように表される。</p>
+
+\[\begin{aligned}
+    \text{sigmoid}(x) = \frac{1}{1 + e^{-x}} \\
+    \text{softmax}(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{k=1}^d e^{x_k}}
+\end{aligned}\]
+
+<p>機械学習における推定のタスクにおいて、二者分類のときにはsigmoid関数が、多者分類のときにはsoftmax関数が使われるのが一般的である。今回のMNISTは出力の推定値が <strong>画像$\mathbf{x}$が数字の$i$を表す確率$y_i$</strong>を求めるのが目標なのでsoftmax関数を使う。</p>
+
+<h2 id="scikit-learnによるロジスティック回帰">scikit-learnによるロジスティック回帰</h2>
+
+<p>scikit-learnはとても簡単。前回の内容に従って画像を読み込むと、画像とラベルを格納したNumPyの配列はそれぞれ (60000, 28, 28, 1) と (60000, 1) になっているはずである。前者は各画素に0-255の画素値が含まれており、後者は、その画像がどの数字なのかを表す整数が格納されている。</p>
+
+<p>上記の通り、線形モデルではベクトルを扱うので、画像の画素値を1列に並べ直してベクトル化しよう。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_images</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">images</span><span class="p">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_images</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>さらに、配列の型を1バイト符号なし整数から32ビット浮動小数に変換しておく。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">astype</span><span class="p">(</span><span class="s">'float32'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>あとは<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" target="_blank">ドキュメント</a>の内容に従い<code class="highlighter-rouge">LogisticRegression</code>クラスを使って識別器を学習する。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s">'multinomial'</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>少し時間がかかるが、しばらくすると学習が終わる。なお上記のコード内での <code class="highlighter-rouge">y</code> は整数型のラベルを格納したNumPyの配列で良い(分かりやすくするために名前を変更した)。</p>
+
+<h2 id="テストデータに対する予測">テストデータに対する予測</h2>
+
+<p>学習が終わったら、次はテストデータを読み込んで、正解率を求める。上記の <code class="highlighter-rouge">clf</code> というオブジェクトに対して、以下のようなコードを呼び出すと、ラベルが自動で計算される。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pred_labels</span> <span class="o">=</span> <span class="n">clf</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>正解率は、このラベルがテストのラベルとどのくらい近いかを計算すれば良いのだから、正解かどうか(0 or 1)の平均を全てのテストデータに対して計算すれば良い。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred_labels</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>ただしく学習できていれば90%程度の正解率となるはずである。</p>
+
+<h2 id="ロジスティック回帰を再現する">ロジスティック回帰を再現する</h2>
+
+<p>上記の通り、ロジスティック回帰による識別モデルは、線形変換とsoftmax関数の組み合わせである。softmax関数にはパラメータ変数は含まれないので、回帰モデル自体のパラメータは行列 $\mathb{A}$ とバイアスベクトル $\mathbf{b}$ のみである。</p>
+
+</div>
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/cpp-python-beginners/2020/04/24/solve-sudoku/">
+            数独を解く
+            <small>24 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cpp-python-beginners/2020/04/24/read-binary/">
+            バイナリファイルの読み込み
+            <small>24 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cpp-python-beginners/2020/04/24/image-load/">
+            画像の読み込み・表示・保存
+            <small>24 Apr 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/cpp-python-beginners/public/js/script.js'></script>
+  </body>
+</html>
