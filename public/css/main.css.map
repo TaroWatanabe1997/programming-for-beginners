@@ -5,8 +5,8 @@
 		"main.scss"
 	],
 	"sourcesContent": [
-		"@import \"lightbox.min.css\";\n\n.lightbox-link {\n  img {\n    width: 50%;\n  }\n}"
+		"@charset \"UTF-8\";\n@import \"lightbox.min.css\";\n@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');\n\n.lightbox-link {\n  img {\n    width: 50%;\n  }\n}\n\n.content {\n  font-family: \"Source Sans Pro\", \"メイリオ\", sans-serif;\n\n  h1 { font-weight: bold; }\n  \n  h2 {\n    font-size: 1.5rem;\n    font-weight: bold;\n    position: relative;\n    padding-left: 0.7rem;\n    margin-top: 2.0rem;\n    margin-bottom: 1.0rem;\n    color: #454545;\n  }\n\n  h2:after {\n    position: absolute;\n    top: 50%;\n    left: 0;\n    transform: translateY(-50%);\n    content: ' ';\n    width: 5px;\n    height: 1em;\n    background-color: #446689;\n  }\n\n  h3 {\n    font-size: 1.2rem;\n    font-weight: bold;\n  }\n\n  em {\n    color: #d44950;\n    font-style: normal;\n  }\n}"
 	],
 	"names": [],
-	"mappings": "AAAA,OAAO,CAAP,qBAAO;AAEP,AACE,cADY,CACZ,GAAG,CAAC,EACF,KAAK,EAAE,GAAG,GACX"
+	"mappings": ";AACA,OAAO,CAAP,qBAAO;AACP,OAAO,CAAC,yFAAI;AAEZ,AACE,cADY,CACZ,GAAG,CAAC,EACF,KAAK,EAAE,GAAG,GACX;;AAGH,AAAA,QAAQ,CAAC,EACP,WAAW,EAAE,yCAAyC,GAkCvD;;AAnCD,AAGE,QAHM,CAGN,EAAE,CAAC,EAAE,WAAW,EAAE,IAAI,GAAI;;AAH5B,AAKE,QALM,CAKN,EAAE,CAAC,EACD,SAAS,EAAE,MAAM,EACjB,WAAW,EAAE,IAAI,EACjB,QAAQ,EAAE,QAAQ,EAClB,YAAY,EAAE,MAAM,EACpB,UAAU,EAAE,MAAM,EAClB,aAAa,EAAE,MAAM,EACrB,KAAK,EAAE,OAAO,GACf;;AAbH,AAeE,QAfM,CAeN,EAAE,CAAC,KAAK,CAAC,EACP,QAAQ,EAAE,QAAQ,EAClB,GAAG,EAAE,GAAG,EACR,IAAI,EAAE,CAAC,EACP,SAAS,EAAE,gBAAgB,EAC3B,OAAO,EAAE,GAAG,EACZ,KAAK,EAAE,GAAG,EACV,MAAM,EAAE,GAAG,EACX,gBAAgB,EAAE,OAAO,GAC1B;;AAxBH,AA0BE,QA1BM,CA0BN,EAAE,CAAC,EACD,SAAS,EAAE,MAAM,EACjB,WAAW,EAAE,IAAI,GAClB;;AA7BH,AA+BE,QA/BM,CA+BN,EAAE,CAAC,EACD,KAAK,EAAE,OAAO,EACd,UAAU,EAAE,MAAM,GACnB"
 }

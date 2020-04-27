@@ -9,12 +9,12 @@
 
   <title>
     
-      線形回帰 &middot; cpp-python-beginners
+      ロジスティック回帰 - その1 - &middot; cpp-python-beginners
     
   </title>
 
   
-  <link rel="canonical" href="https://tatsy.github.io/cpp-python-beginners/python/2020/04/24/linear-regression/">
+  <link rel="canonical" href="https://tatsy.github.io/cpp-python-beginners/_python/logistic-regression-01/">
   
 
   <link rel="stylesheet" href="https://tatsy.github.io/cpp-python-beginners/public/css/poole.css">
@@ -97,11 +97,55 @@ MathJax = {
       
     
       
+        
+      
     
       
         
-          <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/get_started/">環境設定</a>
+      
+    
+      
         
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/cpp-python-beginners/cpp/">C++プログラミング</a>
+        
+      
+    
       
     
       
@@ -125,8 +169,7 @@ MathJax = {
 </div>
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
     <div class="wrap">
       <div class="masthead">
         <div class="container">
@@ -139,11 +182,10 @@ MathJax = {
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">線形回帰</h1>
-  <span class="post-date">24 Apr 2020</span>
+  <h1 class="post-title">ロジスティック回帰 - その1 -</h1>
   <h2 id="ロジスティック回帰の概要">ロジスティック回帰の概要</h2>
 
-<p><a href="/cpp-python-beginners/2020/04/24/read-binary/">バイナリファイルの読み込み</a>で読み込んだMNISTのデータを使って、単純な線形モデルで数字を予想する。</p>
+<p><a href="/cpp-python-beginners/_python/read-binary/">バイナリファイルの読み込み</a>で読み込んだMNISTのデータを使って、単純な線形モデルで数字を予想する。</p>
 
 <p>一般に線形回帰、といったときにはデータベクトル $\mathbf{x}$ を入力として、何らかの推定値 $\mathbf{y}$ を線形式、すなわち</p>
 
@@ -183,7 +225,7 @@ MathJax = {
 <p>あとは<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" target="_blank">ドキュメント</a>の内容に従い<code class="highlighter-rouge">LogisticRegression</code>クラスを使って識別器を学習する。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s">'multinomial'</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s">'multinomial'</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>少し時間がかかるが、しばらくすると学習が終わる。なお上記のコード内での <code class="highlighter-rouge">y</code> は整数型のラベルを格納したNumPyの配列で良い(分かりやすくするために名前を変更した)。</p>
@@ -202,46 +244,8 @@ MathJax = {
 
 <p>ただしく学習できていれば90%程度の正解率となるはずである。</p>
 
-<h2 id="ロジスティック回帰を再現する">ロジスティック回帰を再現する</h2>
-
-<p>上記の通り、ロジスティック回帰による識別モデルは、線形変換とsoftmax関数の組み合わせである。softmax関数にはパラメータ変数は含まれないので、回帰モデル自体のパラメータは行列 $\mathb{A}$ とバイアスベクトル $\mathbf{b}$ のみである。</p>
-
 </div>
 
-
-<div class="related">
-  <h2>Related posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/cpp-python-beginners/2020/04/24/solve-sudoku/">
-            数独を解く
-            <small>24 Apr 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/cpp-python-beginners/2020/04/24/read-binary/">
-            バイナリファイルの読み込み
-            <small>24 Apr 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/cpp-python-beginners/2020/04/24/image-load/">
-            画像の読み込み・表示・保存
-            <small>24 Apr 2020</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
 
 
       </div>
