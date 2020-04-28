@@ -190,9 +190,9 @@ conda <span class="nb">install </span>numpy scipy matplotlib scikit-learn scikit
 conda <span class="nb">install</span> <span class="nt">-c</span> conda-forge jupyterlab
 </code></pre></div></div>
 
-<p>二つ目のコマンドにある<code class="highlighter-rouge">-c conda-forge</code>というのは<code class="highlighter-rouge">conda-forge</code>というチャンネルから必要なパッケージをインストールせよ、という意味だ。デフォルトのconda環境には存在しないものも<code class="highlighter-rouge">conda-forge</code>チャネルには存在していることが多い。もちろん他にも様々なチャネルが存在していて、以下で使うPyTorchなどは<code class="highlighter-rouge">torch</code>というチャネルからインストールできる。</p>
+<p>二つ目のコマンドにある<code class="highlighter-rouge">-c conda-forge</code>というのは<code class="highlighter-rouge">conda-forge</code>というチャンネルから必要なパッケージをインストールせよ、という意味だ。デフォルトのconda環境には存在しないものも<code class="highlighter-rouge">conda-forge</code>チャネルには存在していることが多い。もちろん他にも様々なチャネルが存在していて、以下で使うPyTorchなどは<code class="highlighter-rouge">pytorch</code>というチャネルからインストールできる。</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">install</span> <span class="nt">-c</span> torch torch torchvision
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">install</span> <span class="nt">-c</span> pytorch pytorch torchvision
 </code></pre></div></div>
 
 <p>補足だが、ウェブ上にはAnacondaとpyenvを共存させるようなやり方を説明している記事がなぜか多い。が、これはあまり意味がないことだ。なぜならAnacondaは仮想環境ごとにPythonのバージョンを変えられるし、パッケージのインストールにpipを使ってもいい(pyenvを使っている人はcondaに欲しいパッケージがないことを気にしているようだ…)。</p>
