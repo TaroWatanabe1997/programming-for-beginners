@@ -19,6 +19,8 @@
 
 .content table.images td { text-align: center; }
 
+.content table.images td img { width: 100%; }
+
 .content table.images p { margin: 0px; padding: 0px; }
 
 /*# sourceMappingURL=main.css.map */
