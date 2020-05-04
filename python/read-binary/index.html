@@ -191,7 +191,7 @@ MathJax = {
 
 <p>それ以後は1枚1枚の画像の情報が書かれている。1枚の画像の各画素は白黒の値が0-255 (1バイト符号なし整数)で書かれていて、それが28x28=784画素分ある。故に画像1枚分のデータは784バイトになる。</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pixels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pixels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;'</span> <span class="o">+</span> <span class="s">'B'</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>このままでは画像として表示できないので、これを <strong>NumPy</strong> の配列に変更して、形を変更しよう。</p>
