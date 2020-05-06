@@ -23,4 +23,6 @@
 
 .content table.images p { margin: 0px; padding: 0px; }
 
+.content .highlight pre { white-space: pre; overflow: auto; }
+
 /*# sourceMappingURL=main.css.map */
