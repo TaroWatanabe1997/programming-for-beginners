@@ -162,10 +162,10 @@ MathJax = {
 
         <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s">'train'</span><span class="p">:</span>
             <span class="bp">self</span><span class="p">.</span><span class="n">image_file</span> <span class="o">=</span> <span class="s">'train-images-idx3-ubyte'</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">label_file</span> <span class="o">=</span> <span class="s">'train-labels-idx1.ubyte'</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">label_file</span> <span class="o">=</span> <span class="s">'train-labels-idx1-ubyte'</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="p">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s">'test'</span><span class="p">:</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">image_file</span> <span class="o">=</span> <span class="s">'t10k-images-idx3.ubyte'</span>
-            <span class="bp">self</span><span class="p">.</span><span class="n">label_file</span> <span class="o">=</span> <span class="s">'t10k-labels-idx1.ubyte'</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">image_file</span> <span class="o">=</span> <span class="s">'t10k-images-idx3-ubyte'</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">label_file</span> <span class="o">=</span> <span class="s">'t10k-labels-idx1-ubyte'</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'MNIST dataset mode must be "train" or "test"'</span><span class="p">)</span>
         
@@ -193,6 +193,10 @@ MathJax = {
             <span class="n">pixels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;'</span> <span class="o">+</span> <span class="s">'B'</span> <span class="o">*</span> <span class="n">n_pixels</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">n_pixels</span><span class="p">))</span>
             <span class="n">pixels</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'uint8'</span><span class="p">).</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_images</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
 
+            <span class="c1"># 画像サイズを2べきにしておく
+</span>            <span class="n">pixels</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pad</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span> <span class="n">mode</span><span class="o">=</span><span class="s">'constant'</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="n">pixels</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="s">'float32'</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">pixels</span>
 
     <span class="k">def</span> <span class="nf">_load_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
@@ -202,7 +206,7 @@ MathJax = {
                 <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">'Magic number does not match!'</span><span class="p">)</span>
 
             <span class="n">n_labels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;i'</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">labels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;'</span> <span class="o">+</span> <span class="s">'B'</span> <span class="o">*</span> <span class="n">n_labels</span><span class="p">)</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;'</span> <span class="o">+</span> <span class="s">'B'</span> <span class="o">*</span> <span class="n">n_labels</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">n_labels</span><span class="p">))</span>
             <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'uint8'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">labels</span>
