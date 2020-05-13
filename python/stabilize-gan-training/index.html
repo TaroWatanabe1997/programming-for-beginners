@@ -143,9 +143,86 @@ MathJax = {
 
 <hr />
 
-<h2 id="improved-gan">Improved GAN</h2>
+<h2 id="ganの学習が難しい原因と問題">GANの学習が難しい原因と問題</h2>
 
-<p><a href="https://arxiv.org/pdf/1701.00160.pdf" target="_blank">https://arxiv.org/pdf/1701.00160.pdf</a></p>
+<p>GANはGeneratorがDiscriminatorを騙せるようなきれいな画像を作り出すことができれば、よりよい画像を作ることができるわけですが、ここにはよく知られた問題が2つあります。</p>
+
+<p>1つ目の問題はGeneratorあるいはDiscriminatorの一方だけが早く学習していまい、もう一方のネットワークの学習が進みづらくなる問題です。この問題は初期においてはDiscriminatorの学習が進みすぎて、Generatorがどのような画像を作っても簡単に見破ってしまい、結果としてGeneratorが学習しなくなる問題でした。ただ、最近はGeneratorを安定して学習させる技術がいろいろ出てきたことで、以下にも説明するTTUR (two time-scale update rule)にもあるようにDiscriminatorの方を早く学習させるのが主流です。</p>
+
+<p>2つ目の問題はmode collapseやmissing modeと呼ばれる問題で、Generatorが最も得意な画像、例えば数字なら0、だけを作ってDiscriminatorを騙すように学習してしまうことを指します。Generatorは1-9の数字は全く作ることなく、よりよい0を作ることを目指して学習してしまうわけです。これを防ぐためには、Discriminatorが1枚1枚の画像だけではなく、バッチの中のデータの多様性などを判断できるようにするとよく、初期においてはfeature matchingやminibatch discriminationなどが提案されました。</p>
+
+<h2 id="label-smoothing">Label Smoothing</h2>
+
+<p>Goodfellow 2016, “NIPS 2016 Tutorial: Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1701.00160" target="_blank">https://arxiv.org/abs/1701.00160</a></p>
+
+<h2 id="feature-matching">Feature Matching</h2>
+
+<p>Salimans et al. 2016, “Improved Techniques for Training GANs” <br />
+<a href="https://arxiv.org/abs/1606.03498" target="_blank">https://arxiv.org/abs/1606.03498</a></p>
+
+<h2 id="minibatch-discrimination">Minibatch Discrimination</h2>
+
+<p>Salimans et al. 2016, “Improved Techniques for Training GANs” <br />
+<a href="https://arxiv.org/abs/1606.03498" target="_blank">https://arxiv.org/abs/1606.03498</a></p>
+
+<h2 id="unrolled-gan">Unrolled GAN</h2>
+
+<p>Metz et al. 2016, “Unrolled Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1611.02163" target="_blank">https://arxiv.org/abs/1611.02163</a></p>
+
+<h2 id="boundary-equibillium-gan-began">Boundary Equibillium GAN (BEGAN)</h2>
+
+<p>Berthelot et al. 2017, “BEGAN: Boundary Equilibrium Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1703.10717" target="_blank">https://arxiv.org/abs/1703.10717</a></p>
+
+<h2 id="wasserstein-gan--wgan-gp">Wasserstein GAN (&amp; WGAN-GP)</h2>
+
+<p>Arjovsky et al. 2017, “Wasserstein GAN” <br />
+<a href="https://arxiv.org/abs/1701.07875" target="_blank">https://arxiv.org/abs/1701.07875</a></p>
+
+<p>Gulrajani et al.2017, “Improved Training of Wasserstein GANs” <br />
+<a href="https://arxiv.org/abs/1704.00028" target="_blank">https://arxiv.org/abs/1704.00028</a></p>
+
+<h2 id="least-squares-gan-lsgan">Least-Squares GAN (LSGAN)</h2>
+
+<p>Mao et al. 2017, “Least Squares Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1611.04076" target="_blank">https://arxiv.org/abs/1611.04076</a></p>
+
+<h2 id="two-time-scale-update-rule-ttur">Two time-scale Update Rule (TTUR)</h2>
+
+<p>Heusel et al. 2017, “GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium” <br />
+<a href="https://arxiv.org/abs/1706.08500" target="_blank">https://arxiv.org/abs/1706.08500</a></p>
+
+<h2 id="progressive-growing-of-gans-pggan">Progressive Growing of GANs (PGGAN)</h2>
+
+<p>Karras et al. 2017, “Progressive Growing of GANs for Improved Quality, Stability, and Variation” <br />
+<a href="https://arxiv.org/abs/1710.10196" target="_blank">https://arxiv.org/abs/1710.10196</a></p>
+
+<h2 id="spectral-normalization-sngan">Spectral Normalization (SNGAN)</h2>
+
+<p>Miyato et al. 2018, “Spectral Normalization for Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1802.05957" target="_blank">https://arxiv.org/abs/1802.05957</a></p>
+
+<h2 id="hinge-loss-vs-softplus">Hinge Loss (vs Softplus)</h2>
+
+<p>Miyato et al. 2018, “Spectral Normalization for Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1802.05957" target="_blank">https://arxiv.org/abs/1802.05957</a></p>
+
+<h2 id="self-attention-sagan">Self-Attention (SAGAN)</h2>
+
+<p>Zhang et al. 2018, “Self-Attention Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1805.08318" target="_blank">https://arxiv.org/abs/1805.08318</a></p>
+
+<h2 id="biggan">BigGAN</h2>
+
+<p>Brock et al. 2018, “Large Scale GAN Training for High Fidelity Natural Image Synthesis” <br />
+<a href="https://arxiv.org/abs/1809.11096" target="_blank">https://arxiv.org/abs/1809.11096</a></p>
+
+<h2 id="style-gan">Style GAN</h2>
+
+<p>Karras et al. 2019, “A Style-Based Generator Architecture for Generative Adversarial Networks” <br />
+<a href="https://arxiv.org/abs/1812.04948" target="_blank">https://arxiv.org/abs/1812.04948</a></p>
 
 </div>
 
