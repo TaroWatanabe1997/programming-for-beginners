@@ -207,7 +207,9 @@ MathJax = {
 
             <span class="n">n_labels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;i'</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">labels</span> <span class="o">=</span> <span class="n">struct</span><span class="p">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;'</span> <span class="o">+</span> <span class="s">'B'</span> <span class="o">*</span> <span class="n">n_labels</span><span class="p">,</span> <span class="n">fp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">n_labels</span><span class="p">))</span>
-            <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'uint8'</span><span class="p">)</span>
+
+            <span class="c1"># 誤差関数用にlongで表しておく
+</span>            <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">'int64'</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">labels</span>
 </code></pre></div></div>
@@ -236,7 +238,7 @@ MathJax = {
         <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="p">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
             <span class="n">nn</span><span class="p">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
             <span class="n">nn</span><span class="p">.</span><span class="n">Sigmoid</span><span class="p">(),</span>
             <span class="n">nn</span><span class="p">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
@@ -301,6 +303,9 @@ MathJax = {
 </span><span class="n">images</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'images'</span><span class="p">]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'labels'</span><span class="p">]</span>
 
+<span class="c1"># トレーニングモードに変更
+</span><span class="n">net</span><span class="p">.</span><span class="n">train</span><span class="p">()</span>
+
 <span class="c1"># 勾配の初期化
 </span><span class="n">net</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
 
@@ -317,7 +322,7 @@ MathJax = {
 </span><span class="n">optim</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
 </code></pre></div></div>
 
-<p>より複雑なネットワークになればネットワークへのデータ転送や誤差の評価は複雑にはなるが、基本的な流れはほとんど変わらない。なお上記のコードに現れる <code class="highlighter-rouge">criterion</code> は誤差を評価する損失関数で対数softmax関数を最終出力に用いた場合には <code class="highlighter-rouge">nn.NNLLoss</code> (非負対数尤度, Non-Negative Likelihood)を用いる。</p>
+<p>より複雑なネットワークになればネットワークへのデータ転送や誤差の評価は複雑にはなるが、基本的な流れはほとんど変わらない。なお上記のコードに現れる <code class="highlighter-rouge">criterion</code> は誤差を評価する損失関数で、ネットワークの最終出力に<code class="highlighter-rouge">log_softmax</code>用いた場合には <code class="highlighter-rouge">nn.NLLLoss</code> (非負対数尤度, Non-Negative Likelihood)を用いる。 (効率は落ちるが通常の<code class="highlighter-rouge">softmax</code>を使った場合には <code class="highlighter-rouge">nn.CrossEntropyLoss</code> を使う)。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">NLLLoss</span><span class="p">()</span>
 </code></pre></div></div>
@@ -329,7 +334,6 @@ MathJax = {
 <p>さて、それでは、ここから精度をさらに上げるにはどうしたら良いだろうか？まずは、ネットワークの非線形性を向上し、誤差逆伝播の効率をあげるため、活性化関数をReLU (rectified linear unit) に変更するとよいだろう。加えて、学習の効率を向上させるためにバッチ正規化を入れると良い。すると、5エポックを待つことなく、あっという間に90%以上の精度は出るはずだ。</p>
 
 <p>これ以外にも、様々な学習のテクニックがあるが、それらについては、ネット上にも多くの記事や実装があるので、各自調べてみてほしい。</p>
-
 
 </div>
 
