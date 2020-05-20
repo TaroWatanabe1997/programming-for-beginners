@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      大津の二値化による境界値の決定 &middot; programming-for-beginners
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://tatsy.github.io/programming-for-beginners/cpp/otsu-binarize/">
+  
+
+  <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/poole.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/syntax.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://tatsy.github.io/programming-for-beginners/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="https://tatsy.github.io/programming-for-beginners/public/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://tatsy.github.io/programming-for-beginners/atom.xml">
+
+  <script type="text/javascript" src="/programming-for-beginners/public/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/programming-for-beginners/public/js/lightbox.min.js"></script><script>
+MathJax = {
+    tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        tags: "ams",
+        autoload: {
+            color: [],
+            colorV2: ['color']
+        },
+        packages: {'[+]': ['noerrors']}
+    },
+    chtml: {
+        scale: 1.1,
+        matchFontHeight: false,
+        displayAlign: "left",
+        displayIndent: "2em"
+    },
+    options: {
+        renderActions: {
+            /* add a new named action to render <script type="math/tex"> */
+            find_script_mathtex: [10, function (doc) {
+            for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            }
+            }, '']
+        }
+    },
+    loader: {
+        load: ['[tex]/noerrors']
+    }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+    styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>初心者向けC++/Pythonプログラミング</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="https://tatsy.github.io/programming-for-beginners/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/programming-for-beginners/cpp/">C++プログラミング</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/programming-for-beginners/python/">Pythonプログラミング</a>
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/tatsy/programming-for-beginners">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.0.0</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/programming-for-beginners/" title="Home">programming-for-beginners</a>
+            <small>Programming for everyone!</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">大津の二値化による境界値の決定</h1>
+  <p>マーチング・キューブ法でボリュームデータをメッシュにする際には、ボリューム内のCT値が一定の場所を結んでできる曲面を抽出する。この曲面を<strong>等値面</strong>と呼ぶ。</p>
+
+<p>一つの材質から構成される物体のCT値は空気の部分と物体の部分の2つに分割でき、それらの場所のCT値はかなり離れた値をとっていることが期待される。このような2つの分布を単一の閾値により分割する際に閾値の値を分布の情報から自動決定する方法として大津の二値化が広く知られている。</p>
+
+<h2 id="大津の二値化の概要">大津の二値化の概要</h2>
+
+<p>大津の二値化については、ウェブ上にも多くの解説記事があるので、その概要を述べるに留める。</p>
+
+<p>大津の二値化では、とある閾値の候補を用いてデータを2つのグループに分けたときに、グループ内の平均分散 $\sigma_w^2$とグループ間の分散$\sigma_b^2$を以下のように定義する。</p>
+
+\[\sigma_w^2 = \frac{n_1 \sigma_1^2 + n_2 \sigma_2^2}{n_1 + n_2}\]
+
+\[\sigma_b^2 = \frac{n_1 (\mu_1 - \mu)^2 + n_2 (\mu_2 - \mu)^2}{n_1 + n_2}\]
+
+<p>上記の式において、$\mu$はデータ全体の平均、$\mu_1, \mu_2$は各グループでの平均、$\sigma_1^2, \sigma_2^2$は各グループの分散、$n_1, n_2$は各グループに含まれるデータの総数を表す。</p>
+
+<p>これらを用いると、2つのグループの分散度$S$が、グループ内分散とグループ間分散の比として以下のように表せる。</p>
+
+\[S = \frac{\sigma_w^2}{\sigma_b^2}\]
+
+<p>この分散度をすべての閾値の候補に対して計算し、最も分散度が大きい(=データが最もはっきり分割できる)閾値を求めるのが大津の二値化のアルゴリズムである。</p>
+
+<h2 id="大津の二値化の実装">大津の二値化の実装</h2>
+
+<p>上記の式に従い、平均と分散を求めようとすると、プログラムとしての効率はどうだろうか？</p>
+
+<p>今、ボリュームデータに含まれているデータはそのCT値の大きさを元にヒストグラム化されているとしよう。データの範囲が$[0, n-1]$とすれば、ヒストグラムとは各 $i \in [0, n-1]$につき、データの頻度$h_i$が求まっていることに相当する。</p>
+
+<p>このヒストグラムの値を用いると値の平均ならびに分散は以下のように計算できる。</p>
+
+\[\mu = \frac{1}{n} \sum_{i=0}^{n-1} h_i i\]
+
+<p>同様に、分散は以下のように計算できる。</p>
+
+\[\sigma = \frac{1}{n} \sum_{i=0}^{n-1} h_i (i - \mu)^2\]
+
+<p>これはグループ内の平均や分散についても、同様なので、各グループで平均や分散を求める操作の計算量は$O(n)$と見積もられる。</p>
+
+<p>今、閾値の候補は$n$個あるから、このままだと計算量は$O(n^2)$になりそうだ。しかし、CT値が16bitの符号なし整数、すなわち0-65535の値で表されていることを考えると$n^2$は$10^9$程度のオーダーとなってしまい、計算量が大きすぎる。</p>
+
+<p>余談になるが、現代のCPUは3GHz程度のクロック数なので、単純な計算が1秒間に$3 \times 10^9$できるが、実際の計算では目安として計算量が$10^7$のオーダーを超えると一瞬では計算が終わらなくなる。</p>
+
+<h3 id="効率的な実装">効率的な実装</h3>
+
+<p>グループ内分散およびグループ間分散を求めるに当たり、データ全体の平均と分散は一度だけ計算しておけば良いので、計算量には大きな影響を及ぼさない。問題は閾値を変更するごとに変化してしまう各グループの平均と分散だ。</p>
+
+<p>今、閾値$T$について分散を考えていると、各グループの平均は次のように表せる。</p>
+
+\[\begin{aligned}
+    \mu_1 &amp;= \frac{1}{n_1} \sum_{i=0}^{n_1} h_i i, &amp; n_1 &amp;= T \\
+    \mu_2 &amp;= \frac{1}{n_2} \sum_{i=T}^{T + n_2 - 1} h_i i, &amp; n_2 &amp;= n - T \\
+\end{aligned}\]
+
+<p>この式をよく見ると、Tが1増えたときには、以下の操作を行うことで、平均の値が簡単に更新できることが分かる。</p>
+
+<ul>
+  <li>$n_1$を1増やし、$n_2$を1減らす。</li>
+  <li>$\Sigma$の中に含まれる $h_T T$を$\mu_2$の側から$\mu_1$の側に移項する。</li>
+</ul>
+
+<p>この操作をすれば、いちいち、各閾値$T$に対してヒストグラムの値を足し上げる操作をする必要がないので、非常に効率的であることが分かる。上記の2つの操作はデータの値の範囲に寄らず、同様の操作は各グループの分散を求めるときにも使えるので、結果として大津の二値化の計算量が$O(n)$まで減少する。</p>
+
+<p>ここまでの議論をまとめると、効率的な大津の二値化の実装では、はじめに$T=0$のときのグループ2に対する平均と分散を求めておき (これらはデータ全体の平均と分散に一致する)、閾値を増やすごとに、上記の移項の操作を行いながら、最大の分散度を与える閾値を探索すれば良い。</p>
+
+<p>サンプルプログラムの<code class="highlighter-rouge">mcubes.cpp</code>内にある関数 <code class="highlighter-rouge">getThresholdOtsu</code> に大津の二値化を実装してみよう。</p>
+
+</div>
+
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/programming-for-beginners/public/js/script.js'></script>
+  </body>
+</html>
