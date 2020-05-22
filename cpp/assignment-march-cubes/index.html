@@ -9,12 +9,12 @@
 
   <title>
     
-      GANによる高品質画像生成コンテスト &middot; programming-for-beginners
+      マーチング・キューブ法とその拡張 &middot; programming-for-beginners
     
   </title>
 
   
-  <link rel="canonical" href="https://tatsy.github.io/programming-for-beginners/python/assignment-gan/">
+  <link rel="canonical" href="https://tatsy.github.io/programming-for-beginners/cpp/assignment-march-cubes/">
   
 
   <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/poole.css">
@@ -142,38 +142,31 @@ MathJax = {
 
     <div class="container content">
       <div class="post">
-  <h1 class="post-title">GANによる高品質画像生成コンテスト</h1>
-  <p>ここまでの内容をベースにより良い画像生成を目指しましょう。</p>
+  <h1 class="post-title">マーチング・キューブ法とその拡張</h1>
+  <table class="images">
+<tr>
+  <td style="text-align: center; width: 50%;"><p><strong>ボリューム断面</strong></p>
+</td>
+  <td style="text-align: center; width: 50%;"><p><strong>復元メッシュ</strong></p>
+</td>
+</tr>
+<tr>
+  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/march_cubes/shell_section_140.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/march_cubes/shell_section_140.jpg" alt="" style="width: 100%;" /></a>
+</td>
+  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/march_cubes/shell_mesh.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/march_cubes/shell_mesh.jpg" alt="" style="width: 100%;" /></a>
+</td>
+</tr>
+</table>
 
-<h2 id="データセット">データ・セット</h2>
-
-<p><a href="https://www.robots.ox.ac.uk/~vgg/data/flowers/" target="_blank">Oxford flower dataset</a>の102カテゴリを使って行います。</p>
-
-<h2 id="評価方法">評価方法</h2>
-
-<p>上記のような、10x10の画像タイル1枚を提出してもらいます。名前が分からない状態で、それを参加者に見せて、投票で優勝を決めます。投票後、参加者には各自の実装内容をプレゼンする時間を設けます。</p>
-
-<h2 id="ルール">ルール</h2>
-
-<ul>
-  <li>マシンによる有利・不利を避けるため、学習はColabを用いて行うこととします。
-    <ul>
-      <li>Colabはリロードなしで90分、一定間隔でリロードしても12時間までしか使えません。</li>
-      <li>一定間隔でリロードさせるためには、ブラウザ拡張のツールなどを使うと良いでしょう。</li>
-    </ul>
-  </li>
-  <li>きれいな画像が出るまで乱数をサンプルすることは認めますが、きれいな画像が出るサンプルを100個集めて、それを結果の画像に使うのは禁止とします。</li>
-  <li>ウェブ上にあるソースコードはサンプルコードに「組み込む」というところの範囲内で使用を認めます。ただし、公開されているプログラムを、そのまま使って画像を生成することは禁止とします。</li>
-</ul>
-
-<h2 id="始め方">始め方</h2>
+<p>これまでに解説した内容を元にテンプレートプログラムの内容を改変して、マーチング・キューブ法を実装しよう。変更するべき内容は以下の通り。</p>
 
 <ul>
-  <li>Google Colaboratoryのページを開き、適当なノートを作成する。その後、Google Driveに移動し「Colab Notebooks」というフォルダが作成されていることを確認する。</li>
-  <li>「Colab Notebooks」の中にOxford flower datasetを展開したものを「OxfordFlower」というフォルダ名で配置する</li>
-  <li>Colab上で学習を行う<a href="https://drive.google.com/open?id=1DOfgEWJ7MFdzDhy4K2bVy9v_fIvye40d" target="_blank">サンプルプログラム (単純なDCGAN)</a> をダウンロードし、同じく「Colab Notebooks」に配置する。</li>
-  <li>Colabで上記のサンプルプログラムを開き、実行してみる。上手く実行できたら、以後、これを改良して、より良い画像が生成されるように改良する。</li>
+  <li><code class="highlighter-rouge">volume.h</code>内にあるボリュームデータを読み取る関数<code class="highlighter-rouge">Volume::load</code>を完成させる。</li>
+  <li><code class="highlighter-rouge">mcubes.cpp</code>内にある大津の二値化により等値面を張るための閾値を決定する<code class="highlighter-rouge">getThresholdOtsu</code>関数を完成させる。</li>
+  <li><code class="highlighter-rouge">mcubes.cpp</code>内にある<code class="highlighter-rouge">marchCubes</code>関数にあるfor文の内部に三角形取得するソースコードを追加する。</li>
 </ul>
+
+<p>なお、これらの箇所には、最初の時点では <code class="highlighter-rouge">NOT_IMPL_ERROR()</code> と書かれており、この状態で実行すると、実装されていない箇所がエラーとともに表示されるようになっている。</p>
 
 </div>
 
