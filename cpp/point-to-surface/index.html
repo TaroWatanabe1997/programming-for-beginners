@@ -10,12 +10,12 @@
 
   <title>
     
-      C++プログラミング &middot; programming-for-beginners
+      メッシュ復元アルゴリズムの概要 &middot; programming-for-beginners
     
   </title>
 
   
-  <link rel="canonical" href="https://tatsy.github.io/programming-for-beginners/cpp/">
+  <link rel="canonical" href="https://tatsy.github.io/programming-for-beginners/cpp/point-to-surface/">
   
 
   <link rel="stylesheet" href="https://tatsy.github.io/programming-for-beginners/public/css/poole.css">
@@ -99,7 +99,7 @@ MathJax = {
     
       
         
-          <a class="sidebar-nav-item active" href="https://tatsy.github.io/programming-for-beginners/cpp/">C++プログラミング</a>
+          <a class="sidebar-nav-item" href="https://tatsy.github.io/programming-for-beginners/cpp/">C++プログラミング</a>
         
       
     
@@ -142,58 +142,48 @@ MathJax = {
     </div>
 
     <div class="container content">
-      <div class="page">
-  <h1 class="page-title">C++プログラミング</h1>
-  <h2 id="マーチングキューブ法によるメッシュ生成">マーチング・キューブ法によるメッシュ生成</h2>
-
-<table class="images">
-<tr>
-  <td style="text-align: center; width: 50%;"><p><strong>ボリューム断面</strong></p>
-</td>
-  <td style="text-align: center; width: 50%;"><p><strong>復元メッシュ</strong></p>
-</td>
-</tr>
-<tr>
-  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/march_cubes/shell_section_140.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/march_cubes/shell_section_140.jpg" alt="" style="width: 100%;" /></a>
-</td>
-  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/march_cubes/shell_mesh.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/march_cubes/shell_mesh.jpg" alt="" style="width: 100%;" /></a>
-</td>
-</tr>
-</table>
+      <div class="post">
+  <h1 class="post-title">メッシュ復元アルゴリズムの概要</h1>
+  <p>今回は、点群のデータを入力として、表面メッシュを復元する手法について紹介する。この内容は以下の2つの論文を元にした内容となっている。</p>
 
 <ul>
-  <li><a href="/programming-for-beginners/cpp/read-volume/">ボリュームデータの読み込み</a></li>
-  <li><a href="/programming-for-beginners/cpp/otsu-binarize/">大津の二値化による境界値の決定</a></li>
-  <li><a href="/programming-for-beginners/cpp/march-cubes/">マーチング・キューブ法</a></li>
-  <li><a href="/programming-for-beginners/cpp/assignment-march-cubes/">課題: マーチング・キューブ法とその拡張</a></li>
+  <li>Carr et al. 2001, “Reconstruction and Representation of 3D Objects with Radial Basis Functions”</li>
+  <li>Morse et al. 2001, “Interpolating Implicit Surfaces From Scattered Surface Data Using Compactly Supported Radial Basis Functions”</li>
 </ul>
 
-<h2 id="点群データからのメッシュ復元">点群データからのメッシュ復元</h2>
+<p>これらの論文はいずれも、三次元空間上に定義された陰関数 $f: \mathbb{R}^3 \rightarrow \mathbb{R}$を放射基底関数 (RBF, radial basis function) により補間することで表現する。陰関数が表現できたら、あとはマーチング・キューブ法などを用いて、陰関数のデータを表面メッシュに変換する。</p>
 
-<table class="images">
-<tr>
-  <td style="text-align: center; width: 50%;"><p><strong>入力点群</strong></p>
-</td>
-  <td style="text-align: center; width: 50%;"><p><strong>復元メッシュ</strong></p>
-</td>
-</tr>
-<tr>
-  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/surf_recon/buddha_point.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/surf_recon/buddha_point.jpg" alt="" style="width: 100%;" /></a>
-</td>
-  <td><a class="lightbox-link" href="/programming-for-beginners/public/images/surf_recon/buddha_recon.jpg" data-lightbox="images-1" data-title=""><img src="/programming-for-beginners/public/images/surf_recon/buddha_recon.jpg" alt="" style="width: 100%;" /></a>
-</td>
-</tr>
-</table>
+<p>RBFはある空間上の1点からの「距離」だけに依存する関数で、中心点 $\mathbf{c} \in \mathbb{R}^n$と関数の値を評価する点$\mathbf{x} \in \mathbb{R}^n$の間の距離$r = | \mathbf{x} - \mathbf{c} |^2$を用いて定義される。</p>
 
-<ul>
-  <li><a href="/programming-for-beginners/cpp/point-to-surface/">アルゴリズムの概要</a></li>
-  <li><a href="/programming-for-beginners/cpp/kdtree/">k-d木による最近傍探索</a></li>
-  <li><a href="/programming-for-beginners/cpp/eigen-solve-linear-system/">Eigenを用いた線形問題の解法</a></li>
-  <li><a href="/programming-for-beginners/cpp/radial-basis-function/">RBFによる関数の補間</a></li>
-  <li><a href="/programming-for-beginners/cpp/assignment-point-to-surface/">課題: 点群データからのメッシュ復元</a></li>
-</ul>
+<p>RBFは距離だけに依存する関数一般を指すので、多様な定義の仕方が可能であり、応用に応じていろいろな定義が用いられる。例えば、</p>
+
+<p><strong>ガウス関数</strong> <br />
+\(\phi(r) = \exp(-\beta r^2)\)</p>
+
+<p><strong>薄板スプライン関数 (thin-plate spline)</strong> <br />
+\(\phi(r) = r^2 \log(|r|)\)</p>
+
+<p>などがその代表例として知られる。</p>
+
+<p>メッシュ復元のためには、入力の点群それ自体を中心点としてRBF関数を定義し、その重み付き和により陰関数$f$を近似する。すなわち、</p>
+
+\[f(\mathbf{x}) = \sum_{i=0}^{N-1} w_i \phi_i(\| \mathbf{x}_i - \mathbf{x}\|)\]
+
+<p>のような形で、陰関数を表現し、$f(\mathbf{x}) = 0$となる等値面が、点群から復元される表面メッシュとなる。</p>
+
+<p>上記の陰関数の定義にはパラメータとして$w_i$が含まれるので、これを入力点群のデータから求めることが必要となる。もっとも、入力の点群は欲しい表面メッシュ上にあると考えられるので、$f(\mathbf{x}_i)$は全て0であると考えられる。したがって、全ての$i$について$w_i = 0$となるような単純な解だけで、必要な条件を満たすことが可能となってしまう。</p>
+
+<p>この問題を防ぐために、入力の点群と法線の情報を用いて、点を法線方向に沿って正と負の方向にそれぞれ動かした点の陰関数の値を理想的には+1, -1として入力点群に加える。この拡張された点群の情報を用いてRBF関数による近似を行う。</p>
+
+<p>具体的には各入力点$\mathbf{x}_i$についている陰関数の参照値$d_i$を用いて、エネルギー関数</p>
+
+\[\sum_{i=0}^{N} ( f(\mathbf{x}_i) - d_i )^2\]
+
+<p>を最小化するように重み係数 $w_i$を最適化すると、表面メッシュを表す陰関数を近似することができる。</p>
 
 </div>
+
+
 
     </div>
   </div>
