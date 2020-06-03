@@ -144,7 +144,7 @@ MathJax = {
     <div class="container content">
       <div class="post">
   <h1 class="post-title">マーチング・キューブ法</h1>
-  <p><a href="https://dl.acm.org/doi/10.1145/37402.37422" target="_blank">マーチング・キューブ法</a>は1987年にLorensenとClineによって提案されたアルゴリズムで、2020年現在、コンピュータ・グラフィクスのトップ・ジャーナルであるACM Transactions of Graphicsにおいて、最も引用されている論文です。</p>
+  <p><a href="https://dl.acm.org/doi/10.1145/37402.37422" target="_blank">マーチング・キューブ法</a>は1987年にLorensenとClineによって提案されたアルゴリズムで、2020年現在、コンピュータ・グラフィクスのトップ・ジャーナルであるACM Transactions on Graphicsにおいて、最も引用されている論文です。</p>
 
 <p>今日、マーチング・キューブ法とその発展形はCTやMRIなどで得られる三次元ボリュームデータを表面メッシュデータに置き換える方法として広く利用されています。</p>
 
@@ -178,7 +178,7 @@ MathJax = {
 
 <p><code class="highlighter-rouge">edgeTable</code> の定義から分かる通り、この配列の長さは$2^8 = 256$であり、キューブの8つの頂点のどれが内側で、どれが外側なのかを表すビットマスクから、各エッジ上に新たな頂点が発生するのかどうかを取得できる。例えば、(0始まりで) 2番目の要素である16進数の <code class="highlighter-rouge">0x203</code> (最初の<code class="highlighter-rouge">0x</code>は16進数ということ)であれば、10進数で$2 \cdot 16^2 + 0 \cdot 16^1 + 3 \cdot 16^0 = 515$を表していて、これは2進数なら <code class="highlighter-rouge">0b001000000011</code> (最初の<code class="highlighter-rouge">0b</code> は2進数ということ)だから、1が立っているビットに相当する0, 1, 9番目のエッジ上に頂点が発生することを意味している。</p>
 
-<p>2番目の要素はは2が2進数表示で <code class="highlighter-rouge">0b00000010</code>となることから、1番目の頂点だけが外側であることを表している。この場合には三角形が1つだけ発生するから、上記の考察において、3本のエッジ上に頂点が発生する事実とも一致することが分かる。</p>
+<p>2番目の要素は2が2進数表示で <code class="highlighter-rouge">0b00000010</code>となることから、1番目の頂点だけが外側であることを表している。この場合には三角形が1つだけ発生するから、上記の考察において、3本のエッジ上に頂点が発生する事実とも一致することが分かる。</p>
 
 <p>なお、前半の128個と後半の128個はキューブの頂点の内外が入れ替わったものを表しているので、新たな頂点が発生するエッジが変化することはなく、それ故<code class="highlighter-rouge">edgeTable</code>の後半は前半を逆順に並べ直したものになっている。</p>
 
